@@ -11,7 +11,7 @@
 
 
 
- [GET]/api/rates?
+ [GET]/api/rates
 
 ``` 
 :param c_from: EUR
