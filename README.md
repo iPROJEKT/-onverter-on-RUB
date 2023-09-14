@@ -4,10 +4,10 @@
 
 ### Чтоб проверить
 
-`python -m venv venv` - устновка виртуального окружения
-`.\venv\Scripts\activate` - активация виртуального окружения
-`pip install -r requirements.txt` - постновка зависимостей
-`uvicorn app.main:app --reload` - запуск приложения
+- `python -m venv venv` - устновка виртуального окружения
+- `.\venv\Scripts\activate` - активация виртуального окружения
+- `pip install -r requirements.txt` - постновка зависимостей
+- `uvicorn app.main:app --reload` - запуск приложения
 
 
 
