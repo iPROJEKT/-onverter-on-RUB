@@ -19,11 +19,12 @@ async def convector(
         ...,
         description='Кол-во конвертируемых денег'
     ),
-    c_from: str = Query(
+    _from: str = Query(
         ...,
         min_length=2,
         max_length=3,
-        description='Валюта относительно которой будет происходить расчет'
+        description='Валюта относительно которой будет происходить расчет',
+        alias='from'
     ),
     to: str = Query(
         ...,
