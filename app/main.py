@@ -1,7 +1,7 @@
 import requests
 from requests.exceptions import Timeout, ConnectionError
 
-from fastapi import FastAPI
+from fastapi import FastAPI, Query
 
 from app.const import URL, GET, KEY
 
@@ -9,19 +9,35 @@ from app.const import URL, GET, KEY
 app = FastAPI()
 
 
-@app.get("/api/rates")
+@app.get(
+    '/api/rates',
+    tags=['Получение числа'],
+    summary='Получение числа',
+)
 async def convector(
-    c_from: str,
-    to: str,
-    value: int,
-
+    value: int = Query(
+        ...,
+        description='Кол-во конвертируемых денег'
+    ),
+    c_from: str = Query(
+        ...,
+        min_length=2,
+        max_length=3,
+        description='Валюта относительно которой будет происходить расчет'
+    ),
+    to: str = Query(
+        ...,
+        min_length=2,
+        max_length=3,
+        description='Валюта в которую будет происходить расчет'
+    ),
 ) -> dict[str, float]:
     """
 
-    :param c_from: EUR
-    :param to: RUB
-    :param value: 6
-    :return: 256.1231
+    **param c_from**: EUR
+    **:param to**: RUB
+    **:param value**: 6
+    **:return**: 256.1231
 
     По ручке convector мы отправляем пару в соответсвии с докуменатцией внешнего API 'https://currate.ru/currency/list'
     По форме EURRUB, EURUSD и т.д
