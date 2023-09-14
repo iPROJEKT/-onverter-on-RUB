@@ -1,4 +1,4 @@
-# Converter-on-RUB
+# Converter
 Тестовое задание - конвертатор валют
 
 
